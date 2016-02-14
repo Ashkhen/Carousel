@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UIScrollViewDelegate {
-
+    
     @IBOutlet weak var loginScrollView: UIScrollView!
     @IBOutlet weak var fieldParentView: UIView!
     @IBOutlet weak var buttonParentView: UIView!
@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         buttonParentOffset = -120
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,8 +86,8 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-   
-       
+    
+    
     @IBAction func didSignIn(sender: AnyObject) {
         self.activityIndicator.startAnimating()
         
@@ -99,15 +99,22 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
                 
             } else {
                 if self.emailText.text!.isEmpty || self.passwordText.text!.isEmpty {
-                let alertController = UIAlertController(title: "Email Required", message: "Please enter your email", preferredStyle: .Alert)
-                
-                let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: { (UIAlertAction) -> Void in
-                })
-                
-                alertController.addAction(cancelAction)
-                
-                self.presentViewController(alertController, animated: true, completion: {
-                })
+                    var prompt: String = ""
+                    if self.emailText.text!.isEmpty {
+                        prompt = "Email"
+                    } else {
+                        prompt = "Password"
+                    }
+                    
+                    let alertController = UIAlertController(title: nil, message: "\(prompt) is required", preferredStyle: .Alert)
+                    
+                    let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: { (UIAlertAction) -> Void in
+                    })
+                    
+                    alertController.addAction(cancelAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: {
+                    })
                 }
             }
         }
@@ -119,12 +126,12 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
