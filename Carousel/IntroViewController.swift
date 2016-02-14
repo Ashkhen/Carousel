@@ -12,6 +12,15 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var introScrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var introTile1: UIImageView!
+    @IBOutlet weak var introTile2: UIImageView!
+    @IBOutlet weak var introTile3: UIImageView!
+    @IBOutlet weak var introTile4: UIImageView!
+    @IBOutlet weak var introTile5: UIImageView!
+    @IBOutlet weak var introTile6: UIImageView!
+    
+    var introTile1Scale = CGFloat(1)
+    var introTile1Rotate = CGAffineTransformMakeDegreeRotation(20)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +36,13 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
+        //var scaleTransform = CGAffineTransformMakeScale(introTile1Scale, introTile1Scale)
+        //var rotationTransform = CGAffineTransformMakeRotation(introTile1Rotate)
+        //var transform = CGAffineTransformConcat(rotationTransform, scaleTransform)
+        
+        //introTile1Scale = introTile1Scale + 0.2
+        //introTile1.transform = CGAffineTransformMakeScale(introTile1Scale, introTile1Scale)
+        //introTile1Scale.transform = transform
 
     }
 
