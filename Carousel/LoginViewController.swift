@@ -39,7 +39,6 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         fieldParentOffset = -20
         buttonParentInitial = buttonParentView.frame.origin.y
         buttonParentOffset = -120
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +58,6 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if loginScrollView.contentOffset.y <= -50 {
-            // Hide the keyboard
             view.endEditing(true)
         }
     }
@@ -86,36 +84,36 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
-    
     @IBAction func didSignIn(sender: AnyObject) {
         self.activityIndicator.startAnimating()
         
         delay(2) { () -> () in
             self.activityIndicator.stopAnimating()
             
-            if self.emailText.text == "kingsley" && self.passwordText.text == "password" {
+            if self.emailText.text!.isEmpty || self.passwordText.text!.isEmpty {
+                var prompt: String = ""
+                if self.emailText.text!.isEmpty {
+                    prompt = "Email"
+                } else {
+                    prompt = "Password"
+                }
+                
+                let alertController = UIAlertController(title: nil, message: "\(prompt) is required", preferredStyle: .Alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                alertController.addAction(cancelAction)
+
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+            
+            if self.emailText.text == "ash" && self.passwordText.text == "password" {
                 self.performSegueWithIdentifier("tutorialSegue", sender: nil)
                 
             } else {
-                if self.emailText.text!.isEmpty || self.passwordText.text!.isEmpty {
-                    var prompt: String = ""
-                    if self.emailText.text!.isEmpty {
-                        prompt = "Email"
-                    } else {
-                        prompt = "Password"
-                    }
-                    
-                    let alertController = UIAlertController(title: nil, message: "\(prompt) is required", preferredStyle: .Alert)
-                    
-                    let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: { (UIAlertAction) -> Void in
-                    })
-                    
-                    alertController.addAction(cancelAction)
-                    
-                    self.presentViewController(alertController, animated: true, completion: {
-                    })
-                }
+                let alertController = UIAlertController(title: nil, message: "Wrong credentials", preferredStyle: .Alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -123,15 +121,4 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func didTap(sender: AnyObject) {
         view.endEditing(true)
     }
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }
