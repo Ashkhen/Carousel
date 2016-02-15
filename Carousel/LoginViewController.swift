@@ -27,6 +27,8 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBarHidden = true
+        
         loginScrollView.delegate = self
         
         loginScrollView.contentSize = loginScrollView.frame.size
@@ -116,6 +118,9 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
+    }
+    @IBAction func onBackButton(sender: AnyObject) {
+        navigationController?.popToRootViewControllerAnimated(true)
     }
     
     @IBAction func didTap(sender: AnyObject) {
