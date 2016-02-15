@@ -232,6 +232,32 @@
             </objects>
             <point key="canvasLocation" x="2256" y="2758.5"/>
         </scene>
+        <!--Example View Controller-->
+        <scene sceneID="4VI-XA-zsm">
+            <objects>
+                <viewController id="HXH-Y4-yiq" customClass="ExampleViewController" customModule="Carousel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7UF-cb-rid">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example" id="Zij-I0-5hA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r7q-Nt-JVI">
+                                <rect key="frame" x="21" y="348" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="checkbox_unchecked"/>
+                                <state key="selected" image="checkbox_complete"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJf-tT-O0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2591" y="2634"/>
+        </scene>
         <!--Terms View Controller-->
         <scene sceneID="ynu-wr-V3V">
             <objects>
@@ -304,7 +330,7 @@
                                                 <state key="normal" backgroundImage="create_button"/>
                                                 <connections>
                                                     <action selector="onCreateButton:" destination="6BG-oB-FEP" eventType="touchUpInside" id="m9J-Z5-TAW"/>
-                                                    <segue destination="3cM-ck-ZAB" kind="modal" identifier="goToTermsSegue" id="RDJ-Do-y2J"/>
+                                                    <segue destination="717-pG-weM" kind="modal" id="Pk3-CQ-FY8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -358,6 +384,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <segue destination="3cM-ck-ZAB" kind="modal" id="mYs-3n-fwb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zYN-rb-apF">
                                         <rect key="frame" x="13" y="210" width="20" height="22"/>
@@ -402,6 +431,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="EAz-H5-NFr">
+                                <rect key="frame" x="0.0" y="111" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="banner" id="Mqj-rq-kgD">
+                                        <rect key="frame" x="-40" y="42" width="319" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="feed_nav" id="6Sx-UD-acU">
                                 <rect key="frame" x="-2" y="0.0" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -582,12 +622,16 @@
     </scenes>
     <resources>
         <image name="backup_button" width="320" height="97"/>
+        <image name="banner" width="319" height="44"/>
         <image name="check_box" width="20" height="20"/>
         <image name="check_box_selected" width="20" height="20"/>
+        <image name="checkbox_complete" width="24" height="24"/>
+        <image name="checkbox_unchecked" width="23" height="23"/>
         <image name="conversations" width="320" height="568"/>
         <image name="create_button" width="320" height="57"/>
         <image name="create_nav" width="320" height="66"/>
         <image name="create_text" width="320" height="63"/>
+        <image name="example" width="640" height="1136"/>
         <image name="feed" width="320" height="1564"/>
         <image name="feed_nav" width="320" height="65"/>
         <image name="intro" width="320" height="1136"/>
@@ -609,4 +653,7 @@
         <image name="welcome3" width="320" height="568"/>
         <image name="welcome4" width="320" height="568"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pk3-CQ-FY8"/>
+    </inferredMetricsTieBreakers>
 </document>
