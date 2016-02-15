@@ -81,8 +81,37 @@ class CreateViewController: UIViewController, UIScrollViewDelegate, UITextFieldD
         }
         return false
     }
+    
+    func validateFields() -> String {
+        var prompt: String = ""
+        if firstNameField.text!.isEmpty {
+            prompt = "First Name is Empty!"
+        } else if lastNameField.text!.isEmpty {
+            prompt = "Last Name is Empty!"
+        } else if emailField.text!.isEmpty {
+            prompt = "Email is Empty!"
+        } else if passwordField.text!.isEmpty {
+            prompt = "Password is Empty!"
+        } else if !checkBoxButton.selected {
+            prompt = "You must agree to terms"
+        }
+        return prompt
+    }
 
+    @IBAction func onCreateButton(sender: AnyObject) {
+        let prompt = validateFields()
+        if !prompt.isEmpty {
+           let alert = UIAlertController(title: nil, message: "\(prompt)", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }
     @IBAction func onBoxTap(sender: AnyObject) {
         checkBoxButton.selected = !checkBoxButton.selected
+    }
+    @IBAction func onBack(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
