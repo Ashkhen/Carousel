@@ -15,9 +15,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         settingsScrollView.contentSize = CGSize(width: 320, height: 750)
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,31 +29,15 @@ class SettingsViewController: UIViewController {
 
     @IBAction func onSignOut(sender: AnyObject) {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .ActionSheet)
-        
-        let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: {
-            (UIAlertAction) -> Void in
-        })
-        
+        let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         let logoutAction = UIAlertAction(title: "Logout", style: .Destructive) {
             (UIAlertAction) -> Void in
             self.performSegueWithIdentifier("signoutSegue", sender: nil)
         }
-        
         alertController.addAction(logoutAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
