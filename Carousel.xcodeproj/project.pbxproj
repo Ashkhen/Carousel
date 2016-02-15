@@ -24,6 +24,7 @@
 		5A9706691C7143BB0089AE97 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9706681C7143BB0089AE97 /* CreateViewController.swift */; };
 		5A97066B1C71447F0089AE97 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A97066A1C71447F0089AE97 /* TermsViewController.swift */; };
 		5A97066D1C7171E80089AE97 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A97066C1C7171E80089AE97 /* ExampleViewController.swift */; };
+		5A97066F1C7191D80089AE97 /* SwipeThroughSamplePicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A97066E1C7191D80089AE97 /* SwipeThroughSamplePicsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5A9706681C7143BB0089AE97 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		5A97066A1C71447F0089AE97 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		5A97066C1C7171E80089AE97 /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		5A97066E1C7191D80089AE97 /* SwipeThroughSamplePicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeThroughSamplePicsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				5A9706681C7143BB0089AE97 /* CreateViewController.swift */,
 				5A97066A1C71447F0089AE97 /* TermsViewController.swift */,
 				5A97066C1C7171E80089AE97 /* ExampleViewController.swift */,
+				5A97066E1C7191D80089AE97 /* SwipeThroughSamplePicsViewController.swift */,
 			);
 			path = Carousel;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				5A97066B1C71447F0089AE97 /* TermsViewController.swift in Sources */,
 				5A9706691C7143BB0089AE97 /* CreateViewController.swift in Sources */,
+				5A97066F1C7191D80089AE97 /* SwipeThroughSamplePicsViewController.swift in Sources */,
 				5A97062F1C6AAC3F0089AE97 /* ViewController.swift in Sources */,
 				5A97065B1C6AAEE30089AE97 /* Common.swift in Sources */,
 				5A9706631C6D67D40089AE97 /* TimeLineViewController.swift in Sources */,
