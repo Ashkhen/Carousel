@@ -12,6 +12,7 @@ class TimeLineViewController: UIViewController {
 
     @IBOutlet weak var timeLineScrollView: UIScrollView!
     @IBOutlet weak var feedView: UIImageView!
+    @IBOutlet weak var bannerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,5 +28,13 @@ class TimeLineViewController: UIViewController {
     
     @IBAction func onBubbleTap(sender: AnyObject) {
         performSegueWithIdentifier("goToConvoSegue", sender: nil)
+    }
+    @IBAction func onLearnButton(sender: AnyObject) {
+        performSegueWithIdentifier("goToExampleSegue", sender: nil)
+    }
+    @IBAction func onCloseTap(sender: AnyObject) {
+        UIView.animateWithDuration(0.9) {
+            self.bannerView.hidden = true
+        }
     }
 }
