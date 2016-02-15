@@ -379,6 +379,10 @@
                         <outlet property="buttonParentView" destination="lJ0-kL-nh1" id="yDR-MF-MNj"/>
                         <outlet property="checkBoxButton" destination="zYN-rb-apF" id="a6P-Jn-iCS"/>
                         <outlet property="createScrollView" destination="isR-6r-38m" id="NNf-nu-Tq7"/>
+                        <outlet property="emailField" destination="y3V-yD-38L" id="CJN-x0-byr"/>
+                        <outlet property="firstNameField" destination="wzN-th-Ot1" id="qlU-Zz-5uA"/>
+                        <outlet property="lastNameField" destination="fUq-gl-GOA" id="GWq-Yn-fMi"/>
+                        <outlet property="passwordField" destination="KF5-dI-6Gh" id="gjP-Ij-UEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isf-al-q3N" userLabel="First Responder" sceneMemberID="firstResponder"/>

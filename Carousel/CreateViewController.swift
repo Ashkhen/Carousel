@@ -8,17 +8,31 @@
 
 import UIKit
 
-class CreateViewController: UIViewController, UIScrollViewDelegate {
+class CreateViewController: UIViewController, UIScrollViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var createScrollView: UIScrollView!
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var buttonParentView: UIView!
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     var buttonParentInitial: CGFloat!
     var buttonParentOffset: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstNameField.delegate = self
+        lastNameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        
+        firstNameField.returnKeyType = .Next
+        lastNameField.returnKeyType = .Next
+        emailField.returnKeyType = .Next
+        passwordField.returnKeyType = .Done
         
         createScrollView.delegate = self
         createScrollView.contentSize = createScrollView.frame.size
@@ -50,6 +64,22 @@ class CreateViewController: UIViewController, UIScrollViewDelegate {
         if createScrollView.contentOffset.y <= -50 {
             view.endEditing(true)
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        switch textField {
+        case firstNameField:
+            lastNameField.becomeFirstResponder()
+        case lastNameField:
+            emailField.becomeFirstResponder()
+        case emailField:
+            passwordField.becomeFirstResponder()
+        case passwordField:
+            passwordField.endEditing(false)
+        default:
+            firstNameField.becomeFirstResponder()
+        }
+        return false
     }
 
     @IBAction func onBoxTap(sender: AnyObject) {
