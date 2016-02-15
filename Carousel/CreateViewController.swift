@@ -82,26 +82,32 @@ class CreateViewController: UIViewController, UIScrollViewDelegate, UITextFieldD
         return false
     }
     
-    func validateFields() -> String {
+    func validateFields() -> (String, String) {
         var prompt: String = ""
+        var title: String = ""
         if firstNameField.text!.isEmpty {
-            prompt = "First Name is Empty!"
+            title = "First Name is Required!"
+            prompt = "Please enter a first name"
         } else if lastNameField.text!.isEmpty {
-            prompt = "Last Name is Empty!"
+            title = "Last Name is Required!"
+            prompt = "Please enter a last name"
         } else if emailField.text!.isEmpty {
-            prompt = "Email is Empty!"
+            title = "Email is Required!"
+            prompt = "Please enter email"
         } else if passwordField.text!.isEmpty {
-            prompt = "Password is Empty!"
+            title = "Password is Required!"
+            prompt = "Please enter password"
         } else if !checkBoxButton.selected {
-            prompt = "You must agree to terms"
+            title = "You must agree to terms"
+            prompt = "Please check the box"
         }
-        return prompt
+        return (title, prompt)
     }
 
     @IBAction func onCreateButton(sender: AnyObject) {
-        let prompt = validateFields()
+        let (title, prompt) = validateFields()
         if !prompt.isEmpty {
-           let alert = UIAlertController(title: nil, message: "\(prompt)", preferredStyle: .Alert)
+           let alert = UIAlertController(title: title, message: prompt, preferredStyle: .Alert)
             let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
             alert.addAction(cancelAction)
             self.presentViewController(alert, animated: true, completion: nil)
