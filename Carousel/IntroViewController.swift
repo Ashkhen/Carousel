@@ -19,41 +19,53 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var introTile5: UIImageView!
     @IBOutlet weak var introTile6: UIImageView!
     
-    var introTile1Scale = CGFloat(1)
-    var introTile1Rotate = CGAffineTransformMakeDegreeRotation(20)
+    let xOffsets : [Float] = [-70, 40, 20, 80, -120, -100]
+    let yOffsets : [Float] = [-285, -240, -400, -380, -500, -480]
+    let scales : [Float] = [1, 1.65, 1.7, 1.6, 1.65, 1.65]
+    let rotations : [Float] = [-10, -10, 10, 10, 10, -10]
+    var images : [UIImageView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBarHidden = true
+        
         introScrollView.delegate = self
         
         introScrollView.contentSize = imageView.image!.size
+        
+        images.append(introTile1)
+        images.append(introTile2)
+        images.append(introTile3)
+        images.append(introTile4)
+        images.append(introTile5)
+        images.append(introTile6)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
         
-        //var scaleTransform = CGAffineTransformMakeScale(introTile1Scale, introTile1Scale)
-        //var rotationTransform = CGAffineTransformMakeRotation(introTile1Rotate)
-        //var transform = CGAffineTransformConcat(rotationTransform, scaleTransform)
+        for i in (0...5).reverse() {
+            transformImage(offset, image: images[i], xOffset: xOffsets[i], yOffset: yOffsets[i], scale: scales[i], rotation: rotations[i])
+        }
+    }
+    
+    func transformImage(offset: CGFloat, image: UIImageView, xOffset: Float, yOffset: Float, scale: Float, rotation: Float) {
+       // print("image: \(image), offset: \(offset), x: \(xOffset), y: \(yOffset), scale: \(scale), rotation: \(rotation)")
+        let x = convertValue(offset, r1Min: 0, r1Max: 568, r2Min: CGFloat(xOffset), r2Max: 0)
+        let y = convertValue(offset, r1Min: 0, r1Max: 568, r2Min: CGFloat(yOffset), r2Max: 0)
         
-        //introTile1Scale = introTile1Scale + 0.2
-        //introTile1.transform = CGAffineTransformMakeScale(introTile1Scale, introTile1Scale)
-        //introTile1Scale.transform = transform
-
+        let s = convertValue(offset, r1Min: 0, r1Max: 568, r2Min: CGFloat(scale), r2Max: 1)
+        let r = convertValue(offset, r1Min: 0, r1Max: 568, r2Min: CGFloat(rotation), r2Max: 0)
+        
+        image.transform = CGAffineTransformMakeTranslation(CGFloat(x), CGFloat(y))
+        image.transform = CGAffineTransformScale(image.transform, CGFloat(s), CGFloat(s))
+        image.transform = CGAffineTransformRotate(image.transform, CGFloat(Double(r) * M_PI / 180))
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
